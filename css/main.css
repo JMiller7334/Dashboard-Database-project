@@ -1,0 +1,148 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Ubuntu&family=Ubuntu+Condensed&display=swap");
+/*font syntax
+    'Roboto', sans-serif;
+    'Caveat', cursive;
+    'Permanent Marker', cursive;
+    'Ubuntu', sans-serif;
+    'Ubuntu Condensed', sans-serif;
+*/
+body {
+  overflow: hidden;
+}
+
+nav {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  grid-template-columns: auto;
+  grid-template-areas: "nav-button nav-title";
+  width: 100%;
+  height: 7vh;
+  background-color: #171717;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+nav button {
+  grid-area: nav-button;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(17, 17, 17);
+  color: rgb(255, 255, 255);
+  width: 150px;
+  height: 4.5vh;
+  margin: 1vh;
+  border-radius: 10px;
+  font-family: "Ubuntu", sans-serif;
+}
+nav button:hover {
+  transition-duration: 0.25s;
+  color: #e74c3c;
+  transform: scale(1.1);
+  border: 2px solid #e74c3c;
+}
+nav h1 {
+  color: rgb(255, 255, 255);
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2em;
+  width: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 10px;
+  border-radius: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas: "sidebar stats" "sidebar graph";
+}
+.wrapper aside {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  background-color: #2e2e2e;
+  height: 100vh;
+  width: 100%;
+  padding: 10%;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 15px;
+}
+.wrapper aside h1 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  font-family: "Ubuntu", sans-serif;
+}
+.wrapper aside h2 {
+  margin-top: 7vh;
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  font-family: "Ubuntu", sans-serif;
+}
+.wrapper aside input {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  height: 5vh;
+  padding-left: 10px;
+}
+.wrapper aside #inputPowerUsage {
+  margin-bottom: 5vh;
+}
+.wrapper aside button {
+  margin-top: 3vh;
+  position: relative;
+  width: 150px;
+  border: none;
+  background: #e74c3c;
+  color: white;
+  padding: 1em;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.2s;
+  border-radius: 5px;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+}
+.wrapper aside button:hover {
+  opacity: 1;
+}
+.wrapper aside button:active {
+  top: 4px;
+  box-shadow: #c0392b 0px 3px 2px, #000 0px 3px 5px;
+}
+.wrapper .dashboard {
+  grid-area: stats;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+.wrapper .graphs {
+  grid-area: graph;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+}
+.wrapper .graphs h1 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1em;
+}/*# sourceMappingURL=main.css.map */

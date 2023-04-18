@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Dashboard</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav>
+        <button>Return</button>
+        <div><h1>Analytics</h1></div>
+    </nav>
+    <div class="wrapper">
+        <aside>
+            <h1>Search Database</h1>
+            <input placeholder="Search by ID">
+            <h2>Insert to Database</h2>
+            <input placeholder="Power usage (this month)" id="inputPowerUsage">
+            <input placeholder="Customer Name">
+            <input placeholder="Customer Phone">
+            <input placeholder="Customer Address">
+            <button>Insert</button>
+        </aside>
+
+        <div class="dashboard">
+            <div class="card">Current Total Customers: X</div>
+            <div class="card"> Curent Monthly Total Power Usage: Y</div>
+            <div class="card">Current Est Monthly Gross Profit: Z</div>
+        </div>
+
+        <div class="graphs">
+
+            <div class="card">
+                <h1> Yearly Averages</h1>
+                <canvas id="myChart" style="width:500px;max-width:90%"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="scripts/charts.js"></script>
+</body>
+</html>

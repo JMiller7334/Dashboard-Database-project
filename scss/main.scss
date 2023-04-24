@@ -18,7 +18,8 @@ $fontColor: rgba(255, 255, 255, 1);
 $accent: #e74c3c;
 
 body{
-    overflow: hidden;
+overflow: hidden;
+
 }
 
 nav{
@@ -69,15 +70,24 @@ nav{
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    margin: 10px;
+    margin: 50px;
     border-radius: 20px;
 
-    width: fit-content;
     height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    h1{
+        text-align: center;
+    }
+
+    canvas{
+        width: 45vw;
+    }
 }
 
 .wrapper{
+    height: 100vh;
+    width:  100vw;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 1fr 2fr;
@@ -87,65 +97,72 @@ nav{
 
     aside{
         grid-area: sidebar;
-        display: flex;
-        flex-direction: column;
         background-color: #2e2e2e;
 
-        height: 100vh;
+        height: 100%;
         width: 100%;
         padding: 10%;
 
         box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 15px;
 
-        h1{
-            color: $fontColor;
-            font-size: 1.5rem;
-            font-family: $fontMain;
-        }
+        form{
+            grid-area: sidebar;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
 
-        h2{
-            margin-top: 7vh;
-            color: $fontColor;
-            font-size: 1.5rem;
-            font-family: $fontMain;
-        }
+            h1{
+                color: $fontColor;
+                font-size: 1.5rem;
+                font-family: $fontMain;
+            }
+    
+            h2{
+                margin-top: 7vh;
+                color: $fontColor;
+                font-size: 1.5rem;
+                font-family: $fontMain;
+            }
+    
+            input{
+                font-family: $fontMain;
+                font-weight: bold;
+                margin-top: 20px;
+                height: 5vh;
+                padding-left: 10px;
+            }
+            #inputPowerUsage{
+                margin-bottom: 5vh;
+            }
+    
+            button {
+                margin-top: 3vh;
+                position: relative;
+                width: 150px;
+                border: none;
+                background: #e74c3c;
+                color: white;
+                padding: 1em;
+                font-family: $fontMain;
+                font-weight: bold;
+                text-transform: uppercase;
+                transition: 0.2s;
+                border-radius: 5px;
+                opacity: 0.8;
+                letter-spacing: 1px;
+                box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+    
+                &:hover {
+                    opacity: 1;
+                  }
+                  
+                  &:active {
+                    top: 4px;
+                    box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
+                  }
+            }
 
-        input{
-            font-family: $fontMain;
-            font-weight: bold;
-            margin-top: 10px;
-            height: 5vh;
-            padding-left: 10px;
-        }
-        #inputPowerUsage{
-            margin-bottom: 5vh;
-        }
-
-        button {
-            margin-top: 3vh;
-            position: relative;
-            width: 150px;
-            border: none;
-            background: #e74c3c;
-            color: white;
-            padding: 1em;
-            font-family: $fontMain;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.2s;
-            border-radius: 5px;
-            opacity: 0.8;
-            letter-spacing: 1px;
-            box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
-
-            &:hover {
-                opacity: 1;
-              }
-              
-              &:active {
-                top: 4px;
-                box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
-              }
         }
 
     }

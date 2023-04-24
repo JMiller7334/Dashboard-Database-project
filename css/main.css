@@ -53,16 +53,22 @@ nav h1 {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  margin: 10px;
+  margin: 50px;
   border-radius: 20px;
-  width: -moz-fit-content;
-  width: fit-content;
   height: -moz-fit-content;
   height: fit-content;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.card h1 {
+  text-align: center;
+}
+.card canvas {
+  width: 45vw;
+}
 
 .wrapper {
+  height: 100vh;
+  width: 100vw;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 1fr 2fr;
@@ -70,36 +76,41 @@ nav h1 {
 }
 .wrapper aside {
   grid-area: sidebar;
-  display: flex;
-  flex-direction: column;
   background-color: #2e2e2e;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   padding: 10%;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 15px;
 }
-.wrapper aside h1 {
+.wrapper aside form {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.wrapper aside form h1 {
   color: rgb(255, 255, 255);
   font-size: 1.5rem;
   font-family: "Ubuntu", sans-serif;
 }
-.wrapper aside h2 {
+.wrapper aside form h2 {
   margin-top: 7vh;
   color: rgb(255, 255, 255);
   font-size: 1.5rem;
   font-family: "Ubuntu", sans-serif;
 }
-.wrapper aside input {
+.wrapper aside form input {
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 20px;
   height: 5vh;
   padding-left: 10px;
 }
-.wrapper aside #inputPowerUsage {
+.wrapper aside form #inputPowerUsage {
   margin-bottom: 5vh;
 }
-.wrapper aside button {
+.wrapper aside form button {
   margin-top: 3vh;
   position: relative;
   width: 150px;
@@ -116,10 +127,10 @@ nav h1 {
   letter-spacing: 1px;
   box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
 }
-.wrapper aside button:hover {
+.wrapper aside form button:hover {
   opacity: 1;
 }
-.wrapper aside button:active {
+.wrapper aside form button:active {
   top: 4px;
   box-shadow: #c0392b 0px 3px 2px, #000 0px 3px 5px;
 }

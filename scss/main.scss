@@ -14,7 +14,9 @@ $fontCondensed: 'Ubuntu Condensed', sans-serif;
 
 
 $colorMain: rgba(17, 17, 17);
+$colorAlpha: rgba(17, 17, 17, 0);
 $fontColor: rgba(255, 255, 255, 1);
+
 $accent: #e74c3c;
 
 body{
@@ -41,6 +43,7 @@ nav{
         border: 2px solid $fontColor;
         background-color: $colorMain;
         color: $fontColor;
+        text-align: center;
         width: 150px;
         height: 4.5vh;
         margin: 1vh;
@@ -85,7 +88,7 @@ nav{
     }
 }
 
-.wrapper{
+.main-container{
     height: 100vh;
     width:  100vw;
     display: grid;
@@ -105,62 +108,101 @@ nav{
 
         box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 15px;
 
-        form{
-            grid-area: sidebar;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            width: 100%;
+        .form-container{
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+            "tab"
+            "formA"
+            "formB";
 
-            h1{
-                color: $fontColor;
-                font-size: 1.5rem;
-                font-family: $fontMain;
+            .tab-container{
+                grid-area: tab;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+
+                width: 100%;
+                height: fit-content;
+
+                button{
+                    border: none;
+                    background-color: transparent;
+                    text-align: center;
+                    justify-content: center;
+                    color: $fontColor;
+                    width: 70px;
+                    height: 2vh;
+                    margin: 1vh;
+                    font-family: $fontMain;
+                    font-size: 1em;
+                    padding-bottom: 0.1em;
+            
+                    &:hover {
+                        transition-duration: 0.25s;
+                        color: $accent;
+                        transform: scale(1.1);
+                    }     
+                }
+                
+                #buttonCustomers{
+                    text-decoration: underline;
+                    
+                }
+                #buttonUsage{
+                    text-decoration: none;
+                }
             }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                width: 100%;
     
-            h2{
-                margin-top: 7vh;
-                color: $fontColor;
-                font-size: 1.5rem;
-                font-family: $fontMain;
-            }
-    
-            input{
-                font-family: $fontMain;
-                font-weight: bold;
-                margin-top: 20px;
-                height: 5vh;
-                padding-left: 10px;
-            }
-            #inputPowerUsage{
-                margin-bottom: 5vh;
-            }
-    
-            button {
-                margin-top: 3vh;
-                position: relative;
-                width: 150px;
-                border: none;
-                background: #e74c3c;
-                color: white;
-                padding: 1em;
-                font-family: $fontMain;
-                font-weight: bold;
-                text-transform: uppercase;
-                transition: 0.2s;
-                border-radius: 5px;
-                opacity: 0.8;
-                letter-spacing: 1px;
-                box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
-    
-                &:hover {
-                    opacity: 1;
-                  }
-                  
-                  &:active {
-                    top: 4px;
-                    box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
-                  }
+                h1{
+                    color: $fontColor;
+                    font-size: 1.5rem;
+                    font-family: $fontMain;
+                }
+        
+                h2{
+                    margin-top: 2vh;
+                    color: $fontColor;
+                    font-size: 1.5rem;
+                    font-family: $fontMain;
+                }
+                #inputPowerUsage{
+                    margin-bottom: 5vh;
+                }
+        
+                button {
+                    margin-top: 3vh;
+                    position: relative;
+                    width: 150px;
+                    border: none;
+                    background: #e74c3c;
+                    color: white;
+                    padding: 1em;
+                    font-family: $fontMain;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    transition: 0.2s;
+                    border-radius: 5px;
+                    opacity: 0.8;
+                    letter-spacing: 1px;
+                    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+        
+                    &:hover {
+                        opacity: 1;
+                    }
+                      
+                    &:active {
+                        top: 4px;
+                        box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
+                    }
+                }
             }
 
         }
@@ -190,5 +232,75 @@ nav{
             font-family: $fontMain;
             font-size: 1em;
         }
+    }
+}
+
+input{
+    font-family: $fontMain;
+    font-weight: bold;
+    margin-top: 20px;
+    height: 5vh;
+    padding-left: 10px;
+}
+
+#formCustomer{
+    display: flex;
+}
+
+#formUsage{
+    grid-area: formB;
+    display: none;
+}
+
+#formSearch{
+    grid-area: formA;
+    display: none;
+
+    width: 100%;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "search"
+        "results";
+
+    div{    
+        grid-area: search;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        
+        input{
+            grid-area: search;
+            height: 3vh;
+            width: 75%;
+            margin-right: 0;
+            
+        }
+
+        button{
+            grid-area: find;
+            margin-top: 20px;
+            height: 3vh;
+            width: 25%;
+            margin-left: 0;
+        }
+    }
+
+    p{
+        z-index: 10;
+        grid-area: results;
+        background-color: $fontColor;
+        color: #000;
+        font-family: $fontCondensed;
+
+        padding: 3px;
+        margin-top: 1vh;
+        margin-bottom: 5vh;
+
+        height: 10vh;
+        width: 97%;
+
+        overflow-y: scroll ;
     }
 }

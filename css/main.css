@@ -28,6 +28,7 @@ nav button {
   border: 2px solid rgb(255, 255, 255);
   background-color: rgb(17, 17, 17);
   color: rgb(255, 255, 255);
+  text-align: center;
   width: 150px;
   height: 4.5vh;
   margin: 1vh;
@@ -66,7 +67,7 @@ nav h1 {
   width: 45vw;
 }
 
-.wrapper {
+.main-container {
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -74,7 +75,7 @@ nav h1 {
   grid-template-rows: 1fr 2fr;
   grid-template-areas: "sidebar stats" "sidebar graph";
 }
-.wrapper aside {
+.main-container aside {
   grid-area: sidebar;
   background-color: #2e2e2e;
   height: 100%;
@@ -82,35 +83,66 @@ nav h1 {
   padding: 10%;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 15px;
 }
-.wrapper aside form {
-  grid-area: sidebar;
+.main-container aside .form-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
+  grid-template-areas: "tab" "formA" "formB";
+}
+.main-container aside .form-container .tab-container {
+  grid-area: tab;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.main-container aside .form-container .tab-container button {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  width: 70px;
+  height: 2vh;
+  margin: 1vh;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1em;
+  padding-bottom: 0.1em;
+}
+.main-container aside .form-container .tab-container button:hover {
+  transition-duration: 0.25s;
+  color: #e74c3c;
+  transform: scale(1.1);
+}
+.main-container aside .form-container .tab-container #buttonCustomers {
+  text-decoration: underline;
+}
+.main-container aside .form-container .tab-container #buttonUsage {
+  text-decoration: none;
+}
+.main-container aside .form-container form {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
   width: 100%;
 }
-.wrapper aside form h1 {
+.main-container aside .form-container form h1 {
   color: rgb(255, 255, 255);
   font-size: 1.5rem;
   font-family: "Ubuntu", sans-serif;
 }
-.wrapper aside form h2 {
-  margin-top: 7vh;
+.main-container aside .form-container form h2 {
+  margin-top: 2vh;
   color: rgb(255, 255, 255);
   font-size: 1.5rem;
   font-family: "Ubuntu", sans-serif;
 }
-.wrapper aside form input {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: bold;
-  margin-top: 20px;
-  height: 5vh;
-  padding-left: 10px;
-}
-.wrapper aside form #inputPowerUsage {
+.main-container aside .form-container form #inputPowerUsage {
   margin-bottom: 5vh;
 }
-.wrapper aside form button {
+.main-container aside .form-container form button {
   margin-top: 3vh;
   position: relative;
   width: 150px;
@@ -127,14 +159,14 @@ nav h1 {
   letter-spacing: 1px;
   box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
 }
-.wrapper aside form button:hover {
+.main-container aside .form-container form button:hover {
   opacity: 1;
 }
-.wrapper aside form button:active {
+.main-container aside .form-container form button:active {
   top: 4px;
   box-shadow: #c0392b 0px 3px 2px, #000 0px 3px 5px;
 }
-.wrapper .dashboard {
+.main-container .dashboard {
   grid-area: stats;
   display: flex;
   flex-wrap: wrap;
@@ -143,7 +175,7 @@ nav h1 {
   width: 100%;
   margin: 0;
 }
-.wrapper .graphs {
+.main-container .graphs {
   grid-area: graph;
   display: flex;
   align-items: center;
@@ -153,7 +185,65 @@ nav h1 {
   height: -moz-min-content;
   height: min-content;
 }
-.wrapper .graphs h1 {
+.main-container .graphs h1 {
   font-family: "Ubuntu", sans-serif;
   font-size: 1em;
+}
+
+input {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+  height: 5vh;
+  padding-left: 10px;
+}
+
+#formCustomer {
+  display: flex;
+}
+
+#formUsage {
+  grid-area: formB;
+  display: none;
+}
+
+#formSearch {
+  grid-area: formA;
+  display: none;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "search" "results";
+}
+#formSearch div {
+  grid-area: search;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+#formSearch div input {
+  grid-area: search;
+  height: 3vh;
+  width: 75%;
+  margin-right: 0;
+}
+#formSearch div button {
+  grid-area: find;
+  margin-top: 20px;
+  height: 3vh;
+  width: 25%;
+  margin-left: 0;
+}
+#formSearch p {
+  z-index: 10;
+  grid-area: results;
+  background-color: rgb(255, 255, 255);
+  color: #000;
+  font-family: "Ubuntu Condensed", sans-serif;
+  padding: 3px;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
+  height: 10vh;
+  width: 97%;
+  overflow-y: scroll;
 }/*# sourceMappingURL=main.css.map */

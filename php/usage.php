@@ -1,6 +1,10 @@
 <?php
+    //this is the connect module that forms the connection to the servers database.
+    include_once 'connect.php';
+
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-        $connect = mysqli_connect("localhost", "root", "cheeseCake48#!", "dashboard_schema") or die("Connection Failed:" .mysqli_connect_error());
+        $connect = configConnection();
+        
         if (isset($_POST["id"]) && isset($_POST["usage"]) && isset($_POST["month"])){
             $id = $_POST["id"];
             $month = $_POST["month"];

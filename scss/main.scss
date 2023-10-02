@@ -24,6 +24,10 @@ overflow: hidden;
 
 }
 
+h1, h2{
+    font-family: $fontMain;
+}
+
 nav{
     display: grid;
     grid-template-rows: 1fr 3fr;
@@ -113,12 +117,14 @@ nav{
             grid-template-columns: auto;
             grid-template-rows: 1fr;
             grid-template-areas:
-            "tab"
+            "tabType"
             "formA"
+
+            "tabAction"
             "formB";
 
             .tab-container{
-                grid-area: tab;
+                //grid-area: tab;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -243,6 +249,16 @@ input{
     padding-left: 10px;
 }
 
+//Ids:
+#tabType{
+    grid-area: tabType;
+
+}
+
+#tabAction{
+    grid-area: tabAction;
+}
+
 #formCustomer{
     display: flex;
 }
@@ -252,9 +268,11 @@ input{
     display: none;
 }
 
+
+//universal forms
 #formSearch{
     grid-area: formA;
-    display: none;
+    display: grid;
 
     width: 100%;
 
@@ -303,4 +321,12 @@ input{
 
         overflow-y: scroll ;
     }
+}
+
+#formRead{
+    display: none;
+}
+
+#formDelete{
+    display: none;
 }

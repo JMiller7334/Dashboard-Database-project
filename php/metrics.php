@@ -1,15 +1,9 @@
 <?php
-ob_start();
-    // Establish connection to database
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "cheeseCake48#!";
-    $dbname = "dashboard_schema";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+ob_start();
+    //this is the connect module that forms the connection to the servers database.
+    include_once 'connect.php';
+    $conn = configConnection();
 
     $allQuery = "SELECT * FROM usage_data";
     $resultNum = 0;

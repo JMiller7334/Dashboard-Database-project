@@ -12,6 +12,10 @@ body {
   overflow: hidden;
 }
 
+h1, h2 {
+  font-family: "Ubuntu", sans-serif;
+}
+
 nav {
   display: grid;
   grid-template-rows: 1fr 3fr;
@@ -87,10 +91,9 @@ nav h1 {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 1fr;
-  grid-template-areas: "tab" "formA" "formB";
+  grid-template-areas: "tabType" "formA" "tabAction" "formB";
 }
 .main-container aside .form-container .tab-container {
-  grid-area: tab;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -198,6 +201,14 @@ input {
   padding-left: 10px;
 }
 
+#tabType {
+  grid-area: tabType;
+}
+
+#tabAction {
+  grid-area: tabAction;
+}
+
 #formCustomer {
   display: flex;
 }
@@ -209,7 +220,7 @@ input {
 
 #formSearch {
   grid-area: formA;
-  display: none;
+  display: grid;
   width: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -246,4 +257,12 @@ input {
   height: 10vh;
   width: 97%;
   overflow-y: scroll;
+}
+
+#formRead {
+  display: none;
+}
+
+#formDelete {
+  display: none;
 }/*# sourceMappingURL=main.css.map */

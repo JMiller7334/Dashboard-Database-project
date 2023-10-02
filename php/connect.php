@@ -1,22 +1,18 @@
 <?php
-    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-        $connect = mysqli_connect("localhost", "root", "cheeseCake48#!", "dashboard_schema") or die("Connection Failed:" .mysqli_connect_error());
-        if (isset($_POST["type"]) && isset($_POST["name"]) && isset($_POST["address"]) && isset($_POST["email"])){
-            $type = $_POST["type"];
-            $name = $_POST["name"];
-            $phone = $_POST["phone"];
-            $address = $_POST["address"];
-            $email = $_POST["email"];
+/**Connect:
+ * this connects to the databse and returns the connection to the other
+ * function function php files that handle database querys.
+ */
+function configConnection() {
+    $serverName = "localhost";
+    $username = "root";
+    $password = "cheeseCake48#!";
+    $databaseName = "dashboard_schema";
 
-            $sql = "INSERT INTO `customers` (`name`, `address`, `phone`, `email`, `customer_type`) VALUES ('$name', '$address', '$phone', '$email', '$type')";
-            $query = mysqli_query($connect, $sql);
-            if($query) {
-                echo "database: query successful";
-                header("Location: ".$_SERVER["HTTP_REFERER"]);
-                exit;
-            } else {
-                echo "database: error occured";
-            }
-        }
+    $connection = new mysqli($serverName, $username, $password, $databaseName);
+    if ($connection->connect_error){
+        die("Connection failed: " . $connection->connect_error);
     }
-?> 
+    return $connection;
+}
+?>

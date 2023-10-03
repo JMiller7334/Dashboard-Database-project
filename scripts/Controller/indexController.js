@@ -28,14 +28,12 @@ let currentTab = 'customers';
 let currentAction = 'insert'
 
 
-//universal function for resetting text decoration on 'tab' selector buttons.
 function resetActionTab(){
     buttonTabInsert.style.textDecoration = 'none';
     buttonTabDelete.style.textDecoration = 'none';
     buttonTabRead.style.textDecoration = 'none';
 }
 
-//unversal function to hide all tab buttons.
 function resetCurrentTabs(){
     tabDelete.style.display = 'none';
     tabRead.style.display = 'none';
@@ -43,7 +41,6 @@ function resetCurrentTabs(){
     tabUsage.style.display = 'none';
 }
 
-//onclick function toggle the insert/read/delete feilds.
 function toggleAction(fromButton){
     currentAction = fromButton
     console.log('index-controller: current action' + currentAction);
@@ -71,7 +68,6 @@ function toggleAction(fromButton){
     }
 }
 
-//onclick for toggle customer/usage tabs.
 function toggleTab(fromButton){
     currentAction = 'insert';
 

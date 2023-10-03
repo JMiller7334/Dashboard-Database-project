@@ -3,7 +3,7 @@
 require_once 'php/metrics.php';
 require_once 'php/customers.php';
 require_once 'php/search.php';
-require_once 'php/clear.php';
+require_once 'php/utilities/clear.php';
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +97,7 @@ require_once 'php/clear.php';
                 <h1 id="metric_customers">Total Customers: <?php echo $total_customers; ?></h1>
             </div>
             <div class="card">
-                <h1>Est. monthly profit: $<?php echo $est_profit?></h1>
+                <h1>Avg. monthly billed: $<?php echo $est_profit?></h1>
             </div>
             <div class="card">Avg. monthly power usage(kWh): <?php echo $total_usage; ?></div>
         </div>
@@ -111,10 +111,10 @@ require_once 'php/clear.php';
         </div>
     </div>
 
-    <script src="scripts/Controller/indexController.js"></script>
-    <script src="scripts/Utilities/search.js"></script>
-    <script src="scripts/Utilities/read.js"></script>
+    <script src="scripts/controller/indexController.js"></script>
+    <script src="scripts/utilities/search.js"></script>
+    <script src="scripts/utilities/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="scripts/Utilities/charts.js"></script>
+    <script src="scripts/utilities/charts.js"></script>
 </body>
 </html>

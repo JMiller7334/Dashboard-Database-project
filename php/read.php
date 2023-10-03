@@ -1,6 +1,6 @@
 <?php
 // Include the connection module to establish a database connection
-include_once 'connect.php';
+include_once 'utilities/connect.php';
 
 // Establish the database connection
 $connection = configConnection();

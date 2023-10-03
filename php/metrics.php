@@ -1,83 +1,86 @@
 <?php
-
 ob_start();
-    //this is the connect module that forms the connection to the servers database.
-    include_once 'connect.php';
-    $conn = configConnection();
+include_once 'utilities/connect.php';
+$conn = configConnection();
 
-    $allQuery = "SELECT * FROM usage_data";
-    $resultNum = 0;
+// SQL query to retrieve all data from the usage_data table
+$allQuery = "SELECT * FROM usage_data";
 
-    $marTotal_usage = 0.0;
-    $marTotal_customers = 0;
+// Associative array to store data for each month
+$monthsData = array(
+    "jan" => ["usage" => 0.0, "customers" => 0],
+    "feb" => ["usage" => 0.0, "customers" => 0],
+    "mar" => ["usage" => 0.0, "customers" => 0],
+    "apr" => ["usage" => 0.0, "customers" => 0],
+    "may" => ["usage" => 0.0, "customers" => 0],
+    "jun" => ["usage" => 0.0, "customers" => 0],
+    "jul" => ["usage" => 0.0, "customers" => 0],
+    "aug" => ["usage" => 0.0, "customers" => 0],
+    "sep" => ["usage" => 0.0, "customers" => 0],
+    "oct" => ["usage" => 0.0, "customers" => 0],
+    "nov" => ["usage" => 0.0, "customers" => 0],
+    "dec" => ["usage" => 0.0, "customers" => 0]
+);
 
-    $aprTotal_usage = 0.0;
-    $aprTotal_customers = 0;
+// Variables to store total values
+$total_usage = 0.0;
+$avg_power_usage = 0.0;
+$est_profit = 0.0;
+$total_customers = 0;
 
-    $mayTotal_usage = 0.0;
-    $mayTotal_customers = 0;
+// Execute the SQL query to retrieve data from the usage_data table
+$allResult = mysqli_query($conn, $allQuery);
 
-    $junTotal_usage = 0.0;
-    $junTotal_customers = 0;
+if (mysqli_num_rows($allResult) > 0) {
+    while ($usageRows = mysqli_fetch_assoc($allResult)) {
+        $month = strtolower($usageRows["usage_month"]);
 
-    $total_usage = 0.0;
-
-    $avg_power_usage = 0.0;
-    $est_profit = 0.0;
-
-    //Gather all data from the customer_usage table
-    $allResult = mysqli_query($conn, $allQuery);
-        if (mysqli_num_rows($allResult) > 0) {
-            // Build the search results HTML
-            while ($usageRows = mysqli_fetch_assoc($allResult)) {
-                if ($usageRows["usage_month"] == "jun"){
-                    $junTotal_usage += $usageRows["customer_usage"];
-                    $junTotal_customers += 1;
-               } 
-                else if ($usageRows["usage_month"] == "may"){
-                    $mayTotal_usage += $usageRows["customer_usage"];
-                    $mayTotal_customers += 1;
-                }
-                else if ($usageRows["usage_month"] == "apr"){
-                    $aprTotal_usage += $usageRows["customer_usage"];
-                    $aprTotal_customers += 1;
-                }
-                else if ($usageRows["usage_month"] == "mar"){
-                    $marTotal_usage += $usageRows["customer_usage"];
-                    $marTotal_customers += 1;
-                }
-            }
-            //calculate totals:
-            $total_usage = $aprTotal_usage + $marTotal_usage + $mayTotal_usage + $junTotal_usage;
-            $avg_power_usage = $total_usage/4;
-
-            $est_profit = $avg_power_usage * 13.31; //avg cost per kWh
-
+        //check array key and update the array beased on data
+        if (array_key_exists($month, $monthsData)) {
+            $monthsData[$month]["usage"] += $usageRows["customer_usage"];
+            $monthsData[$month]["customers"] += 1;
         }
-    
-    //HANDLES TOTAL CUSTOMER COUNT//
-    $sql_comm1 = "SELECT COUNT(*) AS total_customers FROM customers";
-    $result1 = $conn->query($sql_comm1);
-
-    if ($result1->num_rows > 0) {
-        $row1 = $result1->fetch_assoc();
-
-        $total_customers = $row1["total_customers"];
     }
 
-    //return the value from the server so AJAX can recieve it.
-    $customers_month_array = array(
-        "mar" => $marTotal_customers, 
-        "apr" => $aprTotal_customers, 
-        "may" => $mayTotal_customers);
+    //increment data
+    foreach ($monthsData as $monthData) {
+        $total_usage += $monthData["usage"];
+    }
 
-    echo json_encode($customers_month_array);
+    //calculate metric
+    $avg_power_usage = $total_usage / count($monthsData);
+    $est_profit = $avg_power_usage * 13.31;
+}
 
-    //$data2Send = implode(",", $customers_month_array);
-    //echo $data2Send;
+// SQL query to count total customers
+$sql_comm1 = "SELECT COUNT(*) AS total_customers FROM customers";
+$result1 = $conn->query($sql_comm1);
 
+if ($result1->num_rows > 0) {
+    $row1 = $result1->fetch_assoc();
+    $total_customers = $row1["total_customers"];
+}
 
-    
-    // Close database connection
-    $conn->close();
+// Array to store customer counts for specific months
+$customers_month_array = array(
+    "jan" => $monthsData["jan"]["customers"],
+    "feb" => $monthsData["feb"]["customers"],
+    "mar" => $monthsData["mar"]["customers"],
+    "apr" => $monthsData["apr"]["customers"],
+    "may" => $monthsData["may"]["customers"],
+    "jun" => $monthsData["jun"]["customers"],
+    "jul" => $monthsData["jul"]["customers"],
+    "aug" => $monthsData["aug"]["customers"],
+    "sep" => $monthsData["sep"]["customers"],
+    "oct" => $monthsData["oct"]["customers"],
+    "nov" => $monthsData["nov"]["customers"],
+    "dec" => $monthsData["dec"]["customers"]
+);
+
+// Encode the customer counts as JSON and send the response
+echo json_encode($customers_month_array);
+
+// Close the database connection
+$conn->close();
 ?>
+

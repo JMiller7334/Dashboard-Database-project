@@ -1,11 +1,11 @@
-var xValues = ["Mar","Apr","May"];
+var xValues = ["Jan", "Feb", "Mar","Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var chart = new Chart("customerChart", {
   type: "line",
   data: {
     labels: xValues,
     datasets: [{
-        label: "Total Customers",
-        data: [0, 0, 0],
+        label: "Customers Billed",
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         borderColor: "green",
         fill: false
     }]
@@ -28,13 +28,14 @@ $.ajax({
   dataType: "json",
   success: function(data) {
       // Parse the data and update the chart
-      var newData = [data.mar, data.apr, data.may];
+      var newData = [data.jan, data.feb,data.mar, data.apr, data.may, data.apr, data.may, data.jun, data.jul, data.aug, 
+      data.sep, data.oct, data.nov, data.dec];
       updateChart(newData);
       console.log("AJAX: response received:" + data);
 
       //clears server output from page.
       $.ajax({
-        url: "php/clear.php",
+        url: "php/utilities/clear.php",
         method: "POST",
         success: function(response) {
           console.log("AJAX: output cleared")

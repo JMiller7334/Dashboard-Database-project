@@ -1,6 +1,6 @@
 <?php
     //this is the connect module that forms the connection to the servers database.
-    include_once 'connect.php';
+    include_once 'utilities/connect.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $connect = configConnection();

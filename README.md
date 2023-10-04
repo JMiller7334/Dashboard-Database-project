@@ -5,6 +5,9 @@ It is a single page dashboard that provides basic functionalities for managing c
 Utlizing a MySQL database this deshboard takes advantage of two tables to allow for the saving, deletion, and reading of 
 records.
 
+Check out the interactive Demo here: 
++ https://jacobjmiller.com/dashboard-project/
+
 ## Key Features:
 + **CRUD Operations:** allows users to create, read, update, and delete records.
 + **Database Integration:** Utilizes a MySQL database containing two tables: one for customer information and another for eletricity usage records.

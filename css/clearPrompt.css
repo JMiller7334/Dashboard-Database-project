@@ -1,0 +1,62 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Ubuntu&family=Ubuntu+Condensed&display=swap");
+/*font syntax
+    'Roboto', sans-serif;
+    'Caveat', cursive;
+    'Permanent Marker', cursive;
+    'Ubuntu', sans-serif;
+    'Ubuntu Condensed', sans-serif;
+*/
+.clear-prompt {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 7%;
+  z-index: 200;
+  background-color: rgb(28, 27, 27);
+  border: 2px solid #e74c3c;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 2%;
+}
+.clear-prompt h2 {
+  font-family: "Ubuntu", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+  padding: 10px;
+}
+.clear-prompt p {
+  font-family: "Ubuntu", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  padding: 10px;
+}
+.clear-prompt .clear-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  width: 100%;
+  margin-top: 10px;
+}
+.clear-prompt .clear-button-container button {
+  height: auto;
+  width: 120px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(28, 27, 27);
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 10px;
+}
+.clear-prompt .clear-button-container button:hover {
+  transition-duration: 0.25s;
+  color: #e74c3c;
+  transform: scale(1.025);
+  border: 2px solid #e74c3c;
+}/*# sourceMappingURL=clearPrompt.css.map */

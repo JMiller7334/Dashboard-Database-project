@@ -1,0 +1,86 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Ubuntu&family=Ubuntu+Condensed&display=swap');
+/*font syntax
+    'Roboto', sans-serif;
+    'Caveat', cursive;
+    'Permanent Marker', cursive;
+    'Ubuntu', sans-serif;
+    'Ubuntu Condensed', sans-serif;
+*/
+$fontMain: 'Ubuntu', sans-serif;
+$fontTitle: 'Permanent Marker', cursive;
+$fontCondensed: 'Ubuntu Condensed', sans-serif;
+
+
+$colorMain: rgb(28, 27, 27);
+$colorAlpha: rgba(17, 17, 17, 0);
+$fontColor: rgba(255, 255, 255, 1);
+
+$accent: #e74c3c;
+
+.clear-prompt{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    top: 7%;
+
+    z-index: 200;
+
+    background-color: $colorMain;
+    border: 2px solid $accent;
+    border-radius: 20px;
+
+    padding: 20px;
+    margin: 2%;
+
+    h2{
+        font-family: $fontMain;
+        color: $fontColor;
+        font-size: 1.2em;
+        padding: 10px;
+    }
+
+    p{
+        font-family: $fontMain;
+        color: $fontColor;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .clear-button-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+        width: 100%;
+
+        margin-top: 10px;
+
+        button {
+            height: auto;
+            width: 120px;
+    
+            font-family: $fontMain;
+            font-size: 14px;
+            color: $fontColor;
+    
+            background-color: $colorMain;
+            border: 2px solid $fontColor;
+            border-radius: 20px;
+            padding: 10px;
+    
+            &:hover {
+                transition-duration: 0.25s;
+                color: $accent;
+                transform: scale(1.025);
+                border: 2px solid $accent;
+            }
+        } 
+    }
+
+}

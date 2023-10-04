@@ -1,5 +1,5 @@
 <?php
-// Include required PHP files
+//Required PHP files
 require_once 'php/metrics.php';
 require_once 'php/customers.php';
 require_once 'php/search.php';
@@ -11,32 +11,59 @@ require_once 'php/utilities/clear.php';
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Company Dashboard</title>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/clearPrompt.css">
 </head>
 <body>
     <nav>
-        <button>Return</button>
-        <div><h1>Analytics</h1></div>
+        <div class="nav-button-container">
+            <button class="nav-button" id='menuButton'>&#9776</button>
+
+            <a href="https://github.com/JMiller7334">
+                <button class="nav-button">Back to GitHub</button>
+            </a>
+
+            <button class="nav-button" id="navClearData">Clear Data</button>
+        </div>
+
+        <h1>Analytics</h1>
     </nav>
+
+    <div class="clear-prompt" id="clearPrompt">
+        <h2>Clear Existing Data?</h2>
+        <p>Do you want to clear all records from the customer usage table?</p>
+
+        <div class="clear-button-container">
+            <button id="buttonClear">Clear Data</button>
+            <button id="buttonKeep">Keep Data</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Tip: Leave the 'search by name' field empty and click 'find' to show all customers.</p>
+    </footer>
+
     <div class="main-container">
-        <aside>
+
+        <aside id="mainTab">
             <!-- TOGGLE BUTTONS -->
             <div class = "form-container">
                 <div class = "tab-container" id="tabType">
-                    <button onclick="toggleTab('customers')" id="buttonCustomers">Customer</button>
-                    <button onclick="toggleTab('usage')" id="buttonUsage">Usage</button>
+                    <button id="buttonCustomers">Customer</button>
+                    <button id="buttonUsage">Usage</button>
                 </div>
 
                 <div class = "tab-container" id="tabAction">
-                    <button onclick="toggleAction('insert')" id="buttonTabInsert">Insert</button>
-                    <button onclick="toggleAction('delete')" id="buttonTabDelete">Delete</button>
-                    <button onclick="toggleAction('read')" id="buttonTabRead">Read</button>
+                    <button id="buttonTabInsert">Insert</button>
+                    <button id="buttonTabDelete">Delete</button>
+                    <button id="buttonTabRead">Read</button>
                 </div>
 
                 <!-- CUSTOMER INSERT -->
@@ -73,7 +100,7 @@ require_once 'php/utilities/clear.php';
                 <!-- SEARCH FORM -->
                 <form action="php/search.php" method="POST" id="formSearch">
                     <div>
-                        <input type="text" placeholder="Search by name" id="search_term" value="" name="search_term">
+                        <input type="text" placeholder="Find id by name" id="search_term" value="" name="search_term">
 
                         <button type="submit" id="submit" name="submit">Find</button>
                     </div>
@@ -92,28 +119,43 @@ require_once 'php/utilities/clear.php';
             </div>
         </aside>
 
-        <div class="dashboard">
-            <div class="card">
-                <h1 id="metric_customers">Total Customers: <?php echo $total_customers; ?></h1>
-            </div>
-            <div class="card">
-                <h1>Avg. monthly billed: $<?php echo $est_profit?></h1>
-            </div>
-            <div class="card">Avg. monthly power usage(kWh): <?php echo $total_usage; ?></div>
-        </div>
+        <div class="dashboard-container">
 
-        <div class="graphs">
-
-            <div class="card">
-                <h1> Customer Billing Trends</h1>
-                <canvas id="customerChart"></canvas>
+            <div class="dashboard">
+                <div class="card">
+                    <h2 id="metric_customers">Total Customers: <?php echo $total_customers; ?></h2>
+                </div>
+                <div class="card">
+                    <h2>Avg. monthly billed: $<?php echo $est_profit?></h2>
+                </div>
+                <div class="card">
+                    <h2>Avg. monthly power usage(kWh): <?php echo $total_usage; ?></h2>
+                </div>
             </div>
+
+            <div class="graphs">
+                <div class="card">
+                    <h3> Customer Billing Trends</h3>
+                    <canvas id="customerChart"></canvas>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <script src="scripts/controller/indexController.js"></script>
+
+    <!-- Module scripts -->
+    <script type='module' src='scripts/utilities/tab.js'></script>
+
+    <!-- Utility scripts -->
     <script src="scripts/utilities/search.js"></script>
     <script src="scripts/utilities/read.js"></script>
+    <script src="scripts/utilities/clearData.js"></script>
+
+    <!-- Controller scripts -->
+    <script type='module' src="scripts/controller/indexController.js"></script>
+
+    <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="scripts/utilities/charts.js"></script>
 </body>

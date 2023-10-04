@@ -28,8 +28,11 @@ $.ajax({
   dataType: "json",
   success: function(data) {
       // Parse the data and update the chart
-      var newData = [data.jan, data.feb,data.mar, data.apr, data.may, data.apr, data.may, data.jun, data.jul, data.aug, 
-      data.sep, data.oct, data.nov, data.dec];
+      var newData = [
+        data.jan, data.feb, data.mar, data.apr, data.may, data.jun,
+        data.jul, data.aug, data.sep, data.oct, data.nov, data.dec
+      ];
+      //alert(newData);
       updateChart(newData);
       console.log("AJAX: response received:" + data);
 

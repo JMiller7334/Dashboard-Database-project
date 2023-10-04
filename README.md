@@ -2,7 +2,7 @@
 ## Overview:
 The Electric Company Dashboard is a web application that I designed while in college for a hypothetical electric company.
 It is a single page dashboard that provides basic functionalities for managing customer data and eleticity usage.
-Utlizing a MySQL database this deshboard takes advantage of two tables to allow for the saving, deletion and reading of 
+Utlizing a MySQL database this deshboard takes advantage of two tables to allow for the saving, deletion, and reading of 
 records.
 
 ## Key Features:
@@ -44,10 +44,6 @@ CREATE TABLE usage_data(
 );
 
 -- CREATE TRIGGERS --
-/* NOTE: Delimiter is set as // means we are using // to indicate the end of the statement, since this
-trigger uses multiple ;s already required - the delimiter must be set to // to indicate the finish of the 
-trigger and should be reverted back to ; after the func/trigger/etc is finished*/
-
 DROP TRIGGER IF EXISTS formatEntry;
 DELIMITER //
 CREATE TRIGGER formatEntry BEFORE INSERT ON customers

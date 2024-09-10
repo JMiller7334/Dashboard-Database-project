@@ -32,7 +32,7 @@ Check out the interactive Demo here:
 ## Connect.php Contents
 
 The `connect.php` file contains the function for connecting to the database. Below is the PHP code used for establishing a connection:
-- Using env.vars is recommended.
+- Using environment variables is recommended, especially for sensitive data.
 
 ```php
 <?php

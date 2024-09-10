@@ -63,7 +63,7 @@ function configConnection() {
 
 
 ## SQL Code:
-```-- CREATE TABLES --
+```
 DROP TABLE IF EXISTS customers;
 CREATE TABLE customers(
     id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -113,10 +113,32 @@ DELIMITER //
 CREATE TRIGGER formatUsage BEFORE INSERT ON usage_data
 FOR EACH ROW
 BEGIN
-	SET NEW.usage_month = LOWER(NEW.usage_month);
-    SET NEW.customer_usage = REPLACE(NEW.customer_usage, NEW.customer_usage, CAST(NEW.customer_usage AS DOUBLE));
+    -- Convert `usage_month` to an abbreviated month name or mark as 'invalid'
+    SET NEW.usage_month = LOWER(NEW.usage_month); -- Convert to lowercase for comparison
+    SET NEW.usage_month = CASE 
+        WHEN NEW.usage_month = 'january' THEN 'jan'
+        WHEN NEW.usage_month = 'february' THEN 'feb'
+        WHEN NEW.usage_month = 'march' THEN 'mar'
+        WHEN NEW.usage_month = 'april' THEN 'apr'
+        WHEN NEW.usage_month = 'may' THEN 'may'
+        WHEN NEW.usage_month = 'june' THEN 'jun'
+        WHEN NEW.usage_month = 'july' THEN 'jul'
+        WHEN NEW.usage_month = 'august' THEN 'aug'
+        WHEN NEW.usage_month = 'september' THEN 'sep'
+        WHEN NEW.usage_month = 'october' THEN 'oct'
+        WHEN NEW.usage_month = 'november' THEN 'nov'
+        WHEN NEW.usage_month = 'december' THEN 'dec'
+        ELSE NEW.usage_month
+    END;
+
+    -- Ensure `customer_usage` is stored as a `DOUBLE`
+    SET NEW.customer_usage = CAST(NEW.customer_usage AS DOUBLE);
 END//
 DELIMITER ;
+
+
+SELECT * FROM customers;
+SELECT * FROM usage_data;
 ```
 ## Acknowledgements
 - jQuery: [https://jquery.com/](https://jquery.com/)

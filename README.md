@@ -26,6 +26,42 @@ Check out the interactive Demo here:
 + Learn jQuery Ajax.
 + Apply SQL to a functional database.
 
+## Creating the connection
++ Ensure the following file exists in the project directory at ```php/utilities/connect.php``` if not create ```connect.php```
+
+## Connect.php Contents
+
+The `connect.php` file contains the function for connecting to the database. Below is the PHP code used for establishing a connection:
+- Using env.vars is recommended.
+
+```php
+<?php
+/**
+ * Connect:
+ * This connects to the database and returns the connection to other
+ * PHP files that handle database queries.
+ */
+function configConnection() {
+    
+    // For server usage
+    /*$serverName = "your-mariaDB-host-name";
+    $username = "your-mariaDB-username";
+    $password = "your-mariaDB-user-password";
+    $databaseName = "your-mariaDB-database-name";*/
+    
+    $connection = new mysqli($serverName, $username, $password, $databaseName);
+    
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+    }
+    
+    return $connection;
+}
+?>
+
+
+
+
 ## SQL Code:
 ```-- CREATE TABLES --
 DROP TABLE IF EXISTS customers;

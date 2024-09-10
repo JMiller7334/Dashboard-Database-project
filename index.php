@@ -18,8 +18,8 @@ require_once 'php/utilities/clear.php';
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/clearPrompt.css">
+    <link rel="stylesheet" href="scss/main.css">
+    <link rel="stylesheet" href="scss/clearPrompt.css">
 </head>
 <body>
     <nav>
@@ -146,12 +146,12 @@ require_once 'php/utilities/clear.php';
 
     <!-- Module scripts -->
     <script type='module' src='scripts/utilities/tab.js'></script>
-
+    <script type="module" src='scripts/utilities/inputValidation.js'></script>
 
 
     <!-- AJAX scripts -->
-     <script src="scripts/ajax/customerInsert.js"></script>
-     <script src="scripts/ajax/usageInsert.js"></script>
+     <script type='module' src="scripts/ajax/customerInsert.js"></script>
+     <script type='module' src="scripts/ajax/usageInsert.js"></script>
      <script src="scripts/ajax/search.js"></script>
      <script src="scripts/ajax/read.js"></script>
      <script src="scripts/ajax/clearData.js"></script>

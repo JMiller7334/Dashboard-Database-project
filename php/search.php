@@ -24,7 +24,7 @@
         if (mysqli_num_rows($result) > 0) {
             // Build the search results HTML
             while ($row = mysqli_fetch_assoc($result)) {
-                $searchResults .= "Id:" . $row['id'] . " | ".$row['name'] . "<br>";
+                $searchResults .= "Id:" . $row['id'] . " | ".$row['NAME'] . "<br>"; //use 'name' for my mySqlWorkbench
             }
             echo $searchResults;
 

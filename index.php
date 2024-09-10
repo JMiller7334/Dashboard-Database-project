@@ -82,7 +82,7 @@ require_once 'php/utilities/clear.php';
                 <!-- DELETE FORM -->
                 <form action="php/delete.php" method="POST" id="formDelete">
                     <h2 id='deleteTitle'>Delete From Database</h2>
-                    <input type="number" placeholder="Customer Id" id="delId" name="delId" required>
+                    <input type="number" placeholder="Enter Customer Id (ie: 1)" id="delId" name="delId" required>
 
                     <input type="hidden" name="action" value="delete">
                     <button type="submit" id="submitDel" name="submitDel">Delete</button>
@@ -91,7 +91,7 @@ require_once 'php/utilities/clear.php';
                 <!-- READ FORM -->
                 <form action="php/read.php" method="POST" id="formRead">
                     <h2 id='readTitle'>Read From Database</h2>
-                    <input type="text" placeholder="Customer Id" id="read_term" name="read_term" required>
+                    <input type="text" placeholder="Enter Customer Id (ie: 1)" id="read_term" name="read_term" required>
                     
                     <input type="hidden" name="action" value="read">
                     <button type="submit" id="submit" name="submit">Read</button>
@@ -110,7 +110,7 @@ require_once 'php/utilities/clear.php';
                 <!-- USAGE INSERT -->
                 <form action="php/usage.php" method="POST" id="formUsage">
                     <h2>Insert to Monthly Usage</h2>
-                    <input type="text" placeholder="Customer Id" id="id" name="id" required>
+                    <input type="text" placeholder="Customer Id (ie: 1)" id="id" name="id" required>
                     <input type="text" placeholder="Month" id="month" name="month" required>
                     <input type="number" placeholder="Usage(kWh)" id="usage" name="usage" required>
 

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#formDelete').submit(function(event) {
-        alert('AJAX CALLED')
+        //alert('AJAX CALLED')
         event.preventDefault();
 
         // Gather form data

@@ -1,3 +1,7 @@
+import { isValidInput } from "../utilities/inputValidation.js";
+import { isValidMonth } from "../utilities/inputValidation.js"
+
+
 $(document).ready(function () {
     // Correct the form ID here
     $('#formUsage').submit(function (event) {
@@ -11,6 +15,24 @@ $(document).ready(function () {
             usage: $('#usage').val(),
             action: 'insert'
         };
+
+        if (!isValidMonth(formData.month)){
+            alert('Invalid month:\nPlease enter a valid month (e.g., Jan, January, Feb, February).');
+            return;
+        }
+
+        let inputsToCheck = [
+            formData.id,
+            formData.month,
+            formData.usage,
+        ];
+
+        for (let i = 0; i < inputsToCheck.length; i++) {
+            if (!isValidInput(inputsToCheck[i])) {
+                alert('Invalid input: Please remove any special characters.');
+                return; 
+            }
+        }
 
         // Send an AJAX request to the PHP script
         $.ajax({

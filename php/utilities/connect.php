@@ -4,10 +4,20 @@
  * function function php files that handle database querys.
  */
 function configConnection() {
-    $serverName = "";
-    $username = "";
-    $password = "";
-    $databaseName = "";
+
+    //for local testing
+    $serverName = "localhost";
+    $username = "root";
+    $password = "cheeseCake48#!";
+    $databaseName = "dashboard_schema";
+
+    
+    //for server usage
+    /*$serverName = "localhost:3306";//"localhost";
+    $username = "themxhbh_guest";//"root";
+    $password = "7.Ys5]}%L)-S";
+    $databaseName = "themxhbh_dashboard";*/
+    
 
     $connection = new mysqli($serverName, $username, $password, $databaseName);
     if ($connection->connect_error){

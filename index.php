@@ -129,7 +129,7 @@ require_once 'php/utilities/clear.php';
                     <h2>Avg. monthly billed: $<?php echo $est_profit?></h2>
                 </div>
                 <div class="card">
-                    <h2>Avg. monthly power usage(kWh): <?php echo $total_usage; ?></h2>
+                    <h2>Avg. monthly power usage(kWh): <?php echo $avg_power_usage; ?></h2>
                 </div>
             </div>
 

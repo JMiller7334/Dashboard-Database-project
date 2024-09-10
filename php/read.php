@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["read_term"])) {
                 $userData = mysqli_fetch_assoc($result);
                 if ($userData) {
                     $readResults = "User ID: " . $userData["id"] . "<br>" .
-                    "User Name: " . $userData["name"] . "<br>" .
+                    "User Name: " . $userData["NAME"] . "<br>" .
                     "User Address: " . $userData["address"] . "<br>" .
                     "User Phone: " . $userData["phone"] . "<br>" .
                     "User Email: " . $userData["email"] . "<br>" .

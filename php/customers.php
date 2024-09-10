@@ -24,7 +24,7 @@
             $email = $_POST["email"];
 
             //the sql query that the database and sql code will receive on the server side.
-            $sql = "INSERT INTO `customers` (`name`, `address`, `phone`, `email`, `customer_type`) VALUES ('$name', '$address', '$phone', '$email', '$type')";
+            $sql = "INSERT INTO `customers` (`NAME`, `address`, `phone`, `email`, `customer_type`) VALUES ('$name', '$address', '$phone', '$email', '$type')";
             $query = mysqli_query($connect, $sql);
             if($query) {
                 echo "database: query successful";

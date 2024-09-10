@@ -16,6 +16,7 @@ $(document).ready(function() {
             success: function(response) {
                 // Handle the response from the PHP script
                 $('#search_results').html(response);
+                console.log("ajax-search: recieved: " + response)
             },
             error: function() {
                 alert('Error: Unable to search for customers.');

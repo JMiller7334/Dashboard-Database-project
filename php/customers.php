@@ -9,30 +9,36 @@
     include_once 'utilities/connect.php';
 
     $connection = configConnection();
-
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-        if(isset($_POST["submit"]) && $_POST["action"] === "insert"){
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["action"]) && $_POST["action"] === "insert") {
             Insert2Database($connection);
         }
     }
-    function Insert2Database($connect){
-        if (isset($_POST["type"]) && isset($_POST["name"]) && isset($_POST["address"]) && isset($_POST["email"])){
+    
+    function Insert2Database($connect) {
+        if (isset($_POST["type"]) && isset($_POST["name"]) && isset($_POST["address"]) && isset($_POST["email"])) {
             $type = $_POST["type"];
             $name = $_POST["name"];
             $phone = $_POST["phone"];
             $address = $_POST["address"];
             $email = $_POST["email"];
-
-            //the sql query that the database and sql code will receive on the server side.
-            $sql = "INSERT INTO `customers` (`NAME`, `address`, `phone`, `email`, `customer_type`) VALUES ('$name', '$address', '$phone', '$email', '$type')";
-            $query = mysqli_query($connect, $sql);
-            if($query) {
+    
+            // Use prepared statements to prevent SQL injection.
+            $stmt = $connect->prepare("INSERT INTO `customers` (`NAME`, `address`, `phone`, `email`, `customer_type`) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $name, $address, $phone, $email, $type);
+    
+            if ($stmt->execute()) {
                 echo "database: query successful";
-                header("Location: ".$_SERVER["HTTP_REFERER"]);
-                exit;
             } else {
-                echo "database: error occured";
+                echo "database: error occurred - " . $stmt->error;
             }
+    
+            $stmt->close();
+        } else {
+            echo "database: missing parameters";
         }
     }
-?> 
+    
+    $connection->close();
+    ?>

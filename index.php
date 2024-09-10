@@ -147,10 +147,16 @@ require_once 'php/utilities/clear.php';
     <!-- Module scripts -->
     <script type='module' src='scripts/utilities/tab.js'></script>
 
-    <!-- Utility scripts -->
-    <script src="scripts/utilities/search.js"></script>
-    <script src="scripts/utilities/read.js"></script>
-    <script src="scripts/utilities/clearData.js"></script>
+
+
+    <!-- AJAX scripts -->
+     <script src="scripts/ajax/customerInsert.js"></script>
+     <script src="scripts/ajax/usageInsert.js"></script>
+     <script src="scripts/ajax/search.js"></script>
+     <script src="scripts/ajax/read.js"></script>
+     <script src="scripts/ajax/clearData.js"></script>
+     <script src="scripts/ajax/customerDelete.js"></script>
+
 
     <!-- Controller scripts -->
     <script type='module' src="scripts/controller/indexController.js"></script>

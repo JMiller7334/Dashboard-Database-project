@@ -79,12 +79,15 @@ nav .nav-button-container .nav-button {
   width: 25vw;
   height: 4.5vh;
   border-radius: 10px;
-  border: 2px solid rgb(255, 255, 255);
   background-color: rgb(17, 17, 17);
   font-family: "Ubuntu", sans-serif;
   color: rgb(255, 255, 255);
   text-align: center;
-  font-size: calc(0.5em + 1vw);
+  font-size: clamp(5px, 10px, 15px);
+  border-width: calc(5px / 5);
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  transition: border-width 0.2s ease-in-out;
 }
 nav .nav-button-container .nav-button:hover {
   transition-duration: 0.25s;
@@ -184,7 +187,7 @@ nav h1 {
   margin-bottom: 5vh;
 }
 .main-container aside .form-container form button {
-  margin-top: 3vh;
+  margin-top: 4vh;
   position: relative;
   width: 150px;
   border: none;
@@ -233,7 +236,7 @@ nav h1 {
   margin: 10px;
   height: -moz-fit-content;
   height: fit-content;
-  width: 90%;
+  width: 90vw;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .main-container .dashboard-container .card h2 {
@@ -245,7 +248,7 @@ nav h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 90vw;
   height: 50%;
 }
 .main-container .dashboard-container .graphs .card h3 {
@@ -256,9 +259,9 @@ nav h1 {
 input {
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
-  margin-top: 20px;
-  height: 5vh;
-  padding-left: 10px;
+  margin-top: 10px;
+  height: 3vh;
+  padding-left: 5px;
 }
 
 #mainTab {
@@ -303,10 +306,9 @@ input {
   margin-right: 0;
 }
 #formSearch div button {
-  grid-area: find;
-  margin-top: 20px;
   height: 3vh;
   width: 25%;
+  margin-top: 0.9vh;
   margin-left: 0;
 }
 #formSearch p {
@@ -332,6 +334,9 @@ input {
 }
 
 @media only screen and (min-width: 900px), only screen and (orientation: landscape) {
+  input {
+    height: 4vh;
+  }
   footer {
     width: auto;
     height: auto;

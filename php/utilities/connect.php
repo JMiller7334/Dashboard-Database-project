@@ -6,17 +6,17 @@
 function configConnection() {
 
     //for local testing
-    /*$serverName = "localhost";
+    $serverName = "localhost";
     $username = "root";
     $password = "cheeseCake48#!";
-    $databaseName = "dashboard_schema";*/
+    $databaseName = "dashboard_schema";
 
     
     //for server usage
-    $serverName = "localhost:3306";//"localhost";
+    /*$serverName = "localhost:3306";//"localhost";
     $username = "themxhbh_guest";//"root";
     $password = "7.Ys5]}%L)-S";
-    $databaseName = "themxhbh_dashboard";
+    $databaseName = "themxhbh_dashboard";*/
     
 
     $connection = new mysqli($serverName, $username, $password, $databaseName);

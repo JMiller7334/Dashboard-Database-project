@@ -75,6 +75,12 @@ h1, h2{
     font-family: $fontMain;
 }
 
+
+@mixin font-border-scale($min-font, $preferred-font, $max-font) {
+    font-size: clamp(#{$min-font}, #{$preferred-font}, #{$max-font});
+    border-width: calc(#{$min-font} / 5);
+}
+
 nav{
     //border: 2px solid purple;
 
@@ -98,8 +104,6 @@ nav{
         flex-direction: row;
         align-items: center;
         padding-left: 10px;
-        //justify-content: center;
-
         gap: 10px;
 
         .nav-button{
@@ -109,12 +113,16 @@ nav{
             height: 4.5vh;
             border-radius: 10px;
     
-            border: 2px solid $fontColor;
             background-color: $colorMain;
             font-family: $fontMain;
             color: $fontColor;
             text-align: center;
-            font-size: calc(0.5em + 1vw);
+
+            @include font-border-scale(5px, 10px, 15px);
+            border-style: solid;
+            border-color: $fontColor;
+            transition: border-width 0.2s ease-in-out;
+            
     
             &:hover {
                 transition-duration: 0.25s;
@@ -244,7 +252,7 @@ nav{
                 }
         
                 button {
-                    margin-top: 3vh;
+                    margin-top: 4vh;
                     position: relative;
                     width: 150px;
                     border: none;
@@ -309,7 +317,7 @@ nav{
             margin: 10px;
         
             height: fit-content;
-            width: 90%;
+            width: 90vw;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         
             h2{
@@ -327,7 +335,7 @@ nav{
             align-items: center;
             justify-content: center;
             //flex-wrap: wrap;
-            width: 90%;
+            width: 90vw;
             height: 50%;
 
             .card{
@@ -347,9 +355,9 @@ nav{
 input{
     font-family: $fontMain;
     font-weight: bold;
-    margin-top: 20px;
-    height: 5vh;
-    padding-left: 10px;
+    margin-top: 10px;
+    height: 3vh;
+    padding-left: 5px;
 }
 
 //Ids:
@@ -404,10 +412,9 @@ input{
         }
 
         button{
-            grid-area: find;
-            margin-top: 20px;
             height: 3vh;
             width: 25%;
+            margin-top: 0.9vh;
             margin-left: 0;
         }
     }
@@ -441,6 +448,10 @@ input{
  // DESKTOP DESIGN //
  @media only screen and (min-width: 900px),
  only screen and (orientation: landscape){
+
+    input{
+        height: 4vh;
+    }
 
     footer{
         width: auto;
@@ -494,7 +505,7 @@ input{
             font-family: $fontMain;
             color: $fontColor;
             text-align: center;
-            font-size: 15px;
+            font-size: clamp(10px, 15px, 15px);
     
             &:hover {
                 transition-duration: 0.25s;

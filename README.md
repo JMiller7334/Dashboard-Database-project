@@ -57,7 +57,7 @@ function configConnection() {
     
     return $connection;
 }
-?>
+?> ```
 
 
 

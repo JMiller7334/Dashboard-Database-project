@@ -44,10 +44,10 @@ The `connect.php` file contains the function for connecting to the database. Bel
 function configConnection() {
     
     // For server usage
-    /*$serverName = "your-mariaDB-host-name";
+    $serverName = "your-mariaDB-host-name";
     $username = "your-mariaDB-username";
     $password = "your-mariaDB-user-password";
-    $databaseName = "your-mariaDB-database-name";*/
+    $databaseName = "your-mariaDB-database-name";
     
     $connection = new mysqli($serverName, $username, $password, $databaseName);
     
@@ -57,8 +57,8 @@ function configConnection() {
     
     return $connection;
 }
-?> ```
-
+?>
+```
 
 
 

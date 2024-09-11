@@ -49,7 +49,7 @@ if (mysqli_num_rows($allResult) > 0) {
 
     //calculate metric
     $avg_power_usage = number_format($total_usage / 12, 2);
-    $est_profit = number_format($avg_power_usage * 13.31, 2);
+    $est_profit = number_format($avg_power_usage * 0.20, 2);
 }
 
 // SQL query to count total customers

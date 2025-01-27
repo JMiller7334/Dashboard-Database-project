@@ -266,10 +266,6 @@ input {
   padding-left: 5px;
 }
 
-#mainTab {
-  display: none;
-}
-
 #tabType {
   grid-area: tabType;
 }

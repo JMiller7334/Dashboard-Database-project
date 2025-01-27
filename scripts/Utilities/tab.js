@@ -54,11 +54,11 @@ export function showTab(){
     if (menuOpen === true){
         menuButton.innerHTML = "&#9776";
         menuOpen = false;
-        mainTab.style.display = 'none';
+        mainTab.style.transform = 'translateX(-100%)';  //slide out
     } else {
         menuButton.innerHTML = "X";
         menuOpen = true;
-        mainTab.style.display = 'block';
+        mainTab.style.transform = 'translateX(0%)';  //slide in
     }
 };
 

@@ -26,8 +26,8 @@ require_once 'php/utilities/clear.php';
         <div class="nav-button-container">
             <button class="nav-button" id='menuButton'>&#9776</button>
 
-            <a href="https://github.com/JMiller7334">
-                <button class="nav-button">Back to GitHub</button>
+            <a href="https://jacobjmiller.com/">
+                <button class="nav-button">Back to Portfolio</button>
             </a>
 
             <button class="nav-button" id="navClearData">Clear Data</button>

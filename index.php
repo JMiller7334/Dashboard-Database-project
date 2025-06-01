@@ -24,7 +24,7 @@ require_once 'php/utilities/clear.php';
 <body>
     <nav>
         <div class="nav-button-container">
-            <button class="nav-button" id='menuButton'>&#9776</button>
+            <button class="nav-button" id='menuButton'>X</button>
 
             <a href="https://jacobjmiller.com/">
                 <button class="nav-button">Back to Portfolio</button>

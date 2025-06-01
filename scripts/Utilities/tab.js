@@ -28,7 +28,7 @@ const actionContainer = document.getElementById('tabAction');
 //mainTab
 const mainTab = document.getElementById('mainTab');
 const menuButton = document.getElementById('menuButton');
-let menuOpen = false;
+let menuOpen = true;
 
 
 // hides all text decorations.
